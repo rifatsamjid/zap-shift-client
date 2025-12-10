@@ -4,17 +4,19 @@ import Work from "../Other/Work/Work";
 import OurServices from "../Other/OurServices/OurServices";
 import Brands from "../Other/Brands/Brands";
 import Review from "../Other/Review/Review";
+import ChooseUs from "../Other/ChooseUs/ChooseUs";
 
-const reviewPromise = fetch("/reviews.json").then(res=>res.json())
+const reviewPromise = fetch("/reviews.json").then((res) => res.json());
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <Work/>
-      <OurServices/>
-      <Brands/>
-      <Review reviewPromise={reviewPromise}/>
+      <Work />
+      <OurServices />
+      <Brands />
+      <ChooseUs />
+      <Review reviewPromise={reviewPromise} />
     </div>
   );
 };

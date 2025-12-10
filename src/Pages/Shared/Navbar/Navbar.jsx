@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Services", href: "#" },
-    { name: "Coverage", href: "#", hasDropdown: true },
+    { name: "Coverage", href: "/coverage" },
     { name: "About Us", href: "#" },
     { name: "Pricing", href: "#" },
     { name: "Be a Rider", href: "#" },
@@ -20,7 +20,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <a href="#" className="text-2xl font-bold text-gray-900">
-              <Logo/>
+              <Logo />
             </a>
           </div>
 
@@ -33,37 +33,8 @@ const Navbar = () => {
                   className="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium transition-colors flex items-center gap-1"
                 >
                   {link.name}
-                  {link.hasDropdown && (
-                    <ChevronDown
-                      size={16}
-                      className="group-hover:rotate-180 transition-transform"
-                    />
-                  )}
+                  
                 </a>
-
-                {/* Dropdown Example (optional) */}
-                {link.hasDropdown && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50"
-                    >
-                      Company
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50"
-                    >
-                      Team
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50"
-                    >
-                      Careers
-                    </a>
-                  </div>
-                )}
               </div>
             ))}
 
