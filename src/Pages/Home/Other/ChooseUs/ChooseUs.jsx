@@ -27,7 +27,7 @@ const ChooseUs = () => {
     },
   ];
   return (
-    <div className="py-16 px-4 bg-gradient-to-b from-white to-pink-50">
+    <div className="py-16 px-4 bg-gradient-to-b">
       <div className="max-w-6xl mx-auto">
         <div className="space-y-12">
           {features.map((feature) => (
