@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "../../../Components/Logo/Logo";
+import { AuthContext } from "../../../Context/AuthContext/AuthContext";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
 
   const navLinks = [
     { name: "Services", href: "#" },
@@ -33,18 +36,29 @@ const Navbar = () => {
                   className="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium transition-colors flex items-center gap-1"
                 >
                   {link.name}
-                  
                 </a>
               </div>
             ))}
 
-            {/* CTA Button */}
-            <a
-              href="#"
-              className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
-            >
-              Get Started
-            </a>
+            <div className="flex gap-4 items-center">
+              {user ? (
+                <>
+                  <span className="text-sm">{user.email}</span>
+                  <button onClick={logOut} className="btn btn-sm btn-error">
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-sm btn-outline">
+                    Login
+                  </Link>
+                </>
+              )}
+              <Link to="" className="btn btn-sm btn-primary text-black">
+                Be a rider
+              </Link>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -72,12 +86,25 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a
-              href="#"
-              className="block w-full text-center bg-indigo-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-indigo-700 mt-4"
-            >
-              Get Started
-            </a>
+            <div className="flex gap-4 items-center">
+              {user ? (
+                <>
+                  <span className="text-sm">{user.email}</span>
+                  <button onClick={logOut} className="btn btn-sm btn-error">
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-sm btn-outline">
+                    Login
+                  </Link>
+                </>
+              )}
+              <Link to="" className="btn btn-sm btn-primary text-black">
+                Be a rider
+              </Link>
+            </div>
           </div>
         </div>
       )}
