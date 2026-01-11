@@ -42,6 +42,50 @@ const Register = () => {
           </div>
 
           <form onSubmit={handleSubmit(handleRegister)} className="space-y-6">
+            {/* Name Field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium text-base-content">
+                  Name
+                </span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                className={`input input-bordered w-full focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/30 transition-all duration-200 ${
+                  errors.email ? "input-error" : ""
+                }`}
+                {...register("name", { required: "name is required" })}
+              />
+              {errors.name && (
+                <div className="label">
+                  <span className="label-text-alt text-error">
+                    {errors.name.message}
+                  </span>
+                </div>
+              )}
+            </div>
+            {/* Photo Field */}
+            <div className="form-control flex flex-col">
+              <label className="label">
+                <span className="label-text font-medium text-base-content">
+                 Photo
+                </span>
+              </label>
+              <input
+                type="file"
+                placeholder="Your Photo"
+                className="file-input"
+                {...register("photo", { required: "photo is required" })}
+              />
+              {errors.photo && (
+                <div className="label">
+                  <span className="label-text-alt text-error">
+                    {errors.photo.message}
+                  </span>
+                </div>
+              )}
+            </div>
             {/* Email Field */}
             <div className="form-control">
               <label className="label">
